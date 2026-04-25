@@ -1,0 +1,13 @@
+:root {
+  /* Цвета фона */
+  --app-background-right-light: #a2bdc8;
+  --app-background-left-light: #314158;
+  --app-background-right-dark: #5A6679;
+  --app-background-left-dark: #1D2734;
+
+  /* Акцентный цвет */
+  --accent-color-light: #ffde5f;
+  --accent-color-dark: #5F80FF;
+
+  /* Цвет основого текста */
+}

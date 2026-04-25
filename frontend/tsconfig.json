@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    // Type Checking
+    "noImplicitReturns": true, // TODO: Проверить как будет работать в ф-иях типа action
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+    // Modules
+    // Нужно поменять при обновлении TS на 6 версию.
+    "baseUrl": "src",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "paths": {
+      "app": ["app"],
+      "components": ["components"],
+      "providers": ["providers"],
+      "pages": ["pages"],
+      "shared": ["shared"]
+    },
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    // JavaScript Support
+    "allowJs": true,
+    // Interop
+    "esModuleInterop": true,
+    "isolatedModules": true, // vite requires
+    // Language and Environment
+    "jsx": "react-jsx",
+    "lib": ["ESNext", "DOM"],
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    // Completeness
+    "skipLibCheck": true,
+    "types": ["node", "jest", "@testing-library/jest-dom"]
+  }
+}

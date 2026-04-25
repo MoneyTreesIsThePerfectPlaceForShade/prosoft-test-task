@@ -1,0 +1,76 @@
+@import url('../../shared/styles/variables.css');
+@import url('../../shared/styles/colors.css');
+@import url('../../shared/styles/templates.css');
+
+@define-mixin size {
+  height: 5rem;
+  width: 5rem;
+}
+
+@keyframes rise-and-fall {
+  0% {
+    transform: translateX(0);
+  }
+
+  35% {
+    transform: translate3d(-8rem, 1rem, 0);
+  }
+
+  40% {
+    /* Нужно для исчезновения влево */
+    opacity: 0;
+  }
+
+  65% {
+    /* Нужно, чтобы стал видимым только при движении справа налево */
+    opacity: 0;
+    transform: translate3d(8rem, 1rem, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.container {
+  border-radius: 100rem;
+  transition: background var(--standart-animation-duration);
+  
+  @mixin size;
+}
+
+.container_light {
+  background-color: var(--accent-color-light);
+
+}
+
+.container_dark {
+  background-color: var(--accent-color-dark);
+}
+
+.animation {
+    animation: rise-and-fall var(--long-animation-duration);
+}
+
+.switchThemeButton {
+  background: none;
+  border: none;
+  border-radius: 100rem;
+  cursor: pointer;
+  font-size: 3rem;
+
+  @mixin size;
+}
+
+.icon {
+  @mixin flexCenter;
+}
+
+.iconLight {
+  color: var(--accent-color-dark);
+}
+
+.iconDark {
+  color: var(--accent-color-light);
+}

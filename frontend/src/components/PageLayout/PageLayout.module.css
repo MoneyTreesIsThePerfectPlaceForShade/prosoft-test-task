@@ -1,0 +1,48 @@
+@import url('../../shared/styles/colors.css');
+@import url('../../shared/styles/templates.css');
+
+@property --app-background-right {
+  inherits: true;
+  initial-value: #a2bdc8;
+  syntax: "<color>";
+}
+
+@property --app-background-left {
+  inherits: true;
+  initial-value: #314158;
+  syntax: "<color>";
+}
+
+.container {
+  background: 
+    repeating-radial-gradient(circle at 0 0, rgb(255,255,255,5%) 0, transparent 2px),
+    radial-gradient(circle at 20% 30%, rgb(255,255,240,15%) 0%, transparent 30%),
+    radial-gradient(circle at 80% 70%, rgb(255,255,240,10%) 0%, transparent 40%),
+    linear-gradient(to left bottom, var(--app-background-right), var(--app-background-left)),
+    linear-gradient(to left bottom, var(--app-background-right), var(--app-background-left)),
+    linear-gradient(to right, rgb(255,255,240,10%) 0%, transparent 40%);
+  background-blend-mode: overlay;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100dvh;
+  padding: 10rem;
+  transition:
+    --app-background-right var(--standart-animation-duration),
+    --app-background-left var(--standart-animation-duration),
+    color var(--standart-animation-duration);
+}
+
+.light {
+  color: var(--accent-color-light);
+}
+
+.dark {
+  color: var(--accent-color-dark);
+}
+
+.content {
+  @mixin flexCenter;
+
+  margin: 10rem 0;
+}

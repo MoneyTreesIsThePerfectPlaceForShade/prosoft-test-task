@@ -1,23 +1,67 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
+  "name": "moneytrees",
+  "version": "0.0.11",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoneyTreesIsThePerfectPlaceForShade/MoneyTrees.git"
+  },
+  "author": "Матвей Скоморохов",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MoneyTreesIsThePerfectPlaceForShade/MoneyTrees/issues"
+  },
+  "homepage": "https://github.com/MoneyTreesIsThePerfectPlaceForShade/MoneyTrees#readme",
   "type": "module",
   "scripts": {
     "start": "vite --port 8080 --host",
     "dev": "vite --port 8080 --host",
-    "build": "vite build",
     "serve": "vite preview",
-    "clean": "rm -rf ./build ./node_modules"
+    "build": "vite build",
+    "clean": "rm -rf ./build ./node_modules",
+    "types": "tsc --noEmit",
+    "lint": "npx eslint .",
+    "stylelint": "stylelint '**/*.css'",
+    "test": "jest --maxWorkers=4 --logHeapUsage",
+    "test-watch": "npm run test -- --watch",
+    "test-coverage": "npm run test -- --coverage",
+    "e2e": "npx playwright test",
+    "e2e-ui": "npx playwright test --ui"
   },
   "dependencies": {
-    "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "@reduxjs/toolkit": "2.11.2",
+    "classnames": "2.5.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-redux": "9.2.0",
+    "react-router": "7.11.0"
   },
   "devDependencies": {
-    "@types/node": "25.0.0",
-    "@types/react": "19.2.7",
-    "@types/react-dom": "19.2.3",
-    "@vitejs/plugin-react": "5.1.2",
+    "@nsmp/eslint-plugin-rules": "2.1.0",
+    "@playwright/test": "1.58.2",
+    "@swc/jest": "0.2.39",
+    "@testing-library/dom": "10.4.0",
+    "@testing-library/jest-dom": "6.6.3",
+    "@testing-library/react": "16.3.0",
+    "@testing-library/user-event": "14.6.1",
+    "@types/jest": "30.0.0",
+    "@types/node": "24.0.13",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "@vitejs/plugin-react-swc": "3.10.2",
+    "cssnano": "7.0.7",
+    "eslint": "9.31.0",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "30.0.4",
+    "jest-environment-jsdom": "30.0.4",
+    "jest-svg-transformer": "1.0.0",
+    "postcss-import": "16.1.1",
+    "postcss-mixins": "12.0.0",
+    "postcss-modules": "6.0.1",
+    "postcss-preset-env": "10.2.4",
+    "stylelint": "16.21.1",
+    "stylelint-config-standard": "38.0.0",
+    "stylelint-order": "7.0.0",
     "typescript": "5.9.3",
     "vite": "7.2.7"
   }

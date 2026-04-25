@@ -1,0 +1,9 @@
+.container {
+  border: 0.3rem solid skyblue;
+  cursor: pointer;
+  padding: 0.5rem;
+
+  &:hover {
+    background-color: salmon;
+  }
+}

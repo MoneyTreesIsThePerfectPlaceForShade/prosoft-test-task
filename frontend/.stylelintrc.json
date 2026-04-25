@@ -1,0 +1,39 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "files": ["*.css"],
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "color-function-notation": "legacy",
+    "at-rule-no-unknown": [true, {
+      "ignoreAtRules": ["define-mixin", "mixin"]
+    }],
+    "declaration-block-no-redundant-longhand-properties": [true, {
+      "ignoreShorthands": [
+        "/font/",
+        "/flex/",
+        "inset",
+        "place-content",
+        "place-items"
+      ]
+    }],
+    "font-family-name-quotes": "always-where-recommended",
+    "font-family-no-missing-generic-family-keyword": [true, {
+      "ignoreFontFamilies": ["icons_temp"]
+    }],
+    "media-feature-range-notation": "prefix",
+    "no-descending-specificity": null,
+    "order/properties-alphabetical-order": true,
+    "property-no-vendor-prefix": null,
+    "selector-class-pattern": null,
+    "selector-no-vendor-prefix": null,
+    "selector-not-notation": "simple",
+    "selector-pseudo-class-no-unknown": [true, {
+      "ignorePseudoClasses": ["local", "global"]
+    }],
+    "selector-type-no-unknown": [true, {
+      "ignoreTypes": ["/each/"]
+    }]
+  }
+}

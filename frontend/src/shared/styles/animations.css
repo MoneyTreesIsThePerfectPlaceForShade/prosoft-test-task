@@ -1,0 +1,28 @@
+:global {
+  /* TODO: Могу ли использовать в других файлах? */
+  @keyframes rise-and-fall {
+    0% {
+      transform: translateX(0);
+    }
+  
+    35% {
+      transform: translate3d(-8rem, 1rem, 0);
+    }
+  
+    40% {
+      /* Нужно для исчезновения влево */
+      opacity: 0;
+    }
+  
+    65% {
+      /* Нужно, чтобы стал видимым только при движении справа налево */
+      opacity: 0;
+      transform: translate3d(8rem, 1rem, 0);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
