@@ -1,12 +1,16 @@
 import {configureStore} from '@reduxjs/toolkit';
-import {counterSlice} from 'components/Custom/counterSlice';
+import {useDispatch, useSelector} from 'react-redux';
+import type {TypedUseSelectorHook} from 'react-redux';
+import { authSlice } from 'features/auth/authSlice';
 
 export const store = configureStore({
 	reducer: {
-		counter: counterSlice.reducer
+		auth: authSlice.reducer
 	}
 });
 
-// TODO: вынести в types.ts??
 export type AppState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+
+export const useAppDispatch: () => AppDispatch = useDispatch;
+export const useAppSelector: TypedUseSelectorHook<AppState> = useSelector;

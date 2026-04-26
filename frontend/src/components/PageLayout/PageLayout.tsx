@@ -15,7 +15,7 @@ export const PageLayout = ({children}: Props) => {
 	const refEl = useRef<HTMLDivElement>(null);
 
 	const setLightThemeColor = useCallback((element: HTMLElement | null) => {
-		element?.style.setProperty('--app-background-right', '#a2bdc8');
+		element?.style.setProperty('--app-background-right', '#708d9a');
 		element?.style.setProperty('--app-background-left', '#314158');
 	}, []);
 

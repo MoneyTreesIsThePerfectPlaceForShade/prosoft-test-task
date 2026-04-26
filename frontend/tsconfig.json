@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     // Type Checking
-    "noImplicitReturns": true, // TODO: Проверить как будет работать в ф-иях типа action
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strict": true,
@@ -14,6 +14,7 @@
       "app": ["app"],
       "components": ["components"],
       "providers": ["providers"],
+      "features": ["features"],
       "pages": ["pages"],
       "shared": ["shared"]
     },

@@ -1,0 +1,64 @@
+@import url('../../shared/styles/colors.css');
+@import url('../../shared/styles/variables.css');
+
+.container {
+  border-radius: 2rem;
+  padding: 2rem;
+  width: 40rem;
+}
+
+.loginText {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.loginInput {
+  background: #47568c;
+  border: 0.5rem solid #47568c;
+  border-radius: 2rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.loginInput label {
+  color: var(--accent-color-light);
+  font-weight: 700;
+  padding-left: 0.8rem
+}
+
+.loginInput input {
+  background-color: #eff2ff;
+  border: none;
+  border-radius: 2rem;
+  color: var(--accent-color-light);
+  color: #364065;
+  font-weight: 700;
+  outline: none;
+  padding: 0.8rem;
+  width: 100%
+}
+
+.loginBtn {
+  background-color: #47568c;
+  border: none;
+  border-radius: 1rem;
+  color: var(--accent-color-light);
+  cursor:  pointer;
+  font-weight: 700;
+  padding: 1rem;
+  transition: all var(--short-animation-duration);
+  width: 100%;
+
+  &:disabled {
+    color: #eff2ff;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.error {
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}

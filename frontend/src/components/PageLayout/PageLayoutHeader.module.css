@@ -1,4 +1,5 @@
 @import url('../../shared/styles/templates.css');
+@import url('../../shared/styles/colors.css');
 
 .container {
   display: flex;
@@ -15,4 +16,35 @@
   @mixin flexCenter;
 
   justify-content: end;
+}
+
+.logout_container {
+  border-radius: 100rem;
+  margin-left: 2rem;
+  transition: background var(--standart-animation-duration);
+}
+
+.logout_light {
+  background-color: var(--accent-color-light);
+}
+
+.logout_dark {
+  background-color: var(--accent-color-dark);
+}
+
+.logout {
+  @mixin menuButton;
+  @mixin flexCenter;
+}
+
+.icon {
+  @mixin flexCenter;
+}
+
+.iconLight {
+  color: var(--accent-color-dark);
+}
+
+.iconDark {
+  color: var(--accent-color-light);
 }

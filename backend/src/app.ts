@@ -2,6 +2,7 @@ import Fastify from "fastify";
 import crypto, { UUID } from "crypto";
 import { fastifyCookie } from "@fastify/cookie";
 import { fastifySession } from "@fastify/session";
+import { fastifyCors } from "@fastify/cors";
 
 import { LogicError, NotFoundError, UnauthenticatedError, UnauthorizedError } from "@/errors";
 import { constants } from "@/constants";
@@ -126,7 +127,28 @@ app.register(fastifySession, {
   }
 });
 
+app.register(fastifyCors, {
+  origin: ['http://172.27.0.4:8080', 'http://localhost:8080'],
+  credentials: true
+});
+
 app.removeContentTypeParser("text/plain");
+
+/**
+ * Хотел сделать честный logout, не знал как лучше, т.к. не бэкендер.
+ * Сделал возможным послать запрос с пустым телом.
+ */
+app.addContentTypeParser('application/json', { parseAs: 'string' }, (req, body: any, done) => {
+  if (body === '' || body === null) {
+    return done(null, {});
+  }
+  try {
+    done(null, JSON.parse(body));
+  } catch (err: any) {
+    err.statusCode = 400;
+    done(err, undefined);
+  }
+});
 
 app.addHook("preHandler", (req, _reply, next) => {
   if (req.session.isAuthenticated === undefined) {
@@ -159,7 +181,7 @@ app.post<{ Body: PostAuthUserBody }>("/api/auth/user", {
   const { login, password } = req.body;
   const user: User | undefined = users.get(login);
   if (user === undefined) {
-    throw new LogicError("Failed to find user with the specified login.");
+    throw new LogicError("Не правильный логин и/или пароль");
   }
   if (!user.passwordHash.equals(crypto.hash("sha256", password, "buffer"))) {
     throw new UnauthorizedError();
@@ -173,6 +195,18 @@ app.post<{ Body: PostAuthUserBody }>("/api/auth/user", {
     role: user.role,
     created_at: user.createdAt.toISOString()
   });
+});
+
+/**
+ * Реализация logout из приложения.
+ */
+app.post("/api/auth/logout", async (req, reply) => {
+  if (!req.session.isAuthenticated) {
+    throw new UnauthenticatedError();
+  }
+
+  await req.session.destroy();
+  reply.send({message: 'logout'});
 });
 
 app.get("/api/me", (req, reply) => {
@@ -443,4 +477,3 @@ app.setErrorHandler((err, _req, reply) => {
 });
 
 export { app };
-

@@ -1,4 +1,3 @@
-import {Custom} from 'components/Custom/Custom';
 import {PageLayout} from 'components/PageLayout/PageLayout';
 import {getHeroes} from 'pages/Music/helpers';
 import {useCallback, useEffect, useState} from 'react';
@@ -48,7 +47,6 @@ export const Music = () => {
 		<PageLayout>
 			<input onChange={e => setSearchHeroe(e.target.value)} type="text" />
 			{renderHeroes()}
-			<Custom />
 		</PageLayout>
 	);
 };

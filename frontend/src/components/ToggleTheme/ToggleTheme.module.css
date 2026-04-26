@@ -2,10 +2,6 @@
 @import url('../../shared/styles/colors.css');
 @import url('../../shared/styles/templates.css');
 
-@define-mixin size {
-  height: 5rem;
-  width: 5rem;
-}
 
 @keyframes rise-and-fall {
   0% {
@@ -54,12 +50,7 @@
 }
 
 .switchThemeButton {
-  background: none;
-  border: none;
-  border-radius: 100rem;
-  cursor: pointer;
-  font-size: 3rem;
-
+  @mixin menuButton;
   @mixin size;
 }
 

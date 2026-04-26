@@ -8,7 +8,6 @@ export default defineConfig(({command}) => {
 				generateScopedName: (name: string, filename: string, css: string) => {
 					const filePath = filename.split('/').pop() || '';
 					const fileName = filePath.replace(/\.module\.(css|scss|sass|less|styl|stylus)$/, '');
-					// TODO: пока не буду удалять, но на практике пойму нужен ли мне `hash`
 					const hash = Buffer.from(css + filename).toString('base64').slice(0, 5).replace(/[+/=]/g, '');
 					return `${fileName}__${name}___${hash}`;
 				}
@@ -19,6 +18,7 @@ export default defineConfig(({command}) => {
 			alias: {
 				app: '/src/app',
 				components: '/src/components',
+				features: '/src/features',
 				pages: '/src/pages',
 				providers: '/src/providers',
 				shared: '/src/shared'

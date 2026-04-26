@@ -3,7 +3,7 @@
 
 @property --app-background-right {
   inherits: true;
-  initial-value: #a2bdc8;
+  initial-value: #708d9a;
   syntax: "<color>";
 }
 
