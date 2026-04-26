@@ -8,7 +8,7 @@ import {HeaderMenuTile} from 'components/HeaderMenuTile/HeaderMenuTile';
  */
 export const HeaderMenu = () => {
 	const menuTiles = [
-		{order: 1, page: '/music', title: 'Музыка'},
+		{order: 1, page: '/books', title: 'Список книг'},
 		{order: 0, page: '/', title: 'Дом'}
 	].sort((firstTile, secondTile) => firstTile.order - secondTile.order);
 

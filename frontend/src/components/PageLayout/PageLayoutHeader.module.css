@@ -39,6 +39,8 @@
 
 .icon {
   @mixin flexCenter;
+
+  transition: color var(--standart-animation-duration);
 }
 
 .iconLight {

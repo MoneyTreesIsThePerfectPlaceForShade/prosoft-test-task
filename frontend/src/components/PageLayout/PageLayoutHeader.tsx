@@ -1,13 +1,13 @@
-import styles from './PageLayoutHeader.module.css';
 import {HeaderMenu} from 'components/HeaderMenu/HeaderMenu';
 import {ToggleTheme} from 'components/ToggleTheme/ToggleTheme';
 import {useAppDispatch, useAppSelector} from '../../app/store';
 import {logout} from '../../features/auth/authSlice';
 import {useNavigate} from 'react-router';
+import {useTheme} from 'shared/hooks/useTheme';
+import {Icon} from 'shared/components/Icon/Icon';
+import {logoutIcon} from 'shared/icons/icons';
 import cn from 'classnames';
-import { useTheme } from 'shared/hooks/useTheme';
-import { Icon } from 'shared/components/Icon/Icon';
-import { logoutIcon } from 'shared/icons/icons';
+import styles from './PageLayoutHeader.module.css';
 
 export const PageLayoutHeader = () => {
 	const {theme} = useTheme();

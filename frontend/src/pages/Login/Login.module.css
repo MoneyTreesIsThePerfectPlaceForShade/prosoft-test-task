@@ -13,8 +13,8 @@
 }
 
 .loginInput {
-  background: #47568c;
-  border: 0.5rem solid #47568c;
+  background: var(--block-background-color);
+  border: 0.5rem solid var(--block-background-color);
   border-radius: 2rem;
   margin-bottom: 2rem;
   padding: 0.5rem;
@@ -40,7 +40,7 @@
 }
 
 .loginBtn {
-  background-color: #47568c;
+  background-color: var(--block-background-color);
   border: none;
   border-radius: 1rem;
   color: var(--accent-color-light);

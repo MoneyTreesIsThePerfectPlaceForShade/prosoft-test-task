@@ -1,23 +1,29 @@
 import { apiRequest } from './utils';
-import { LoginRequest } from './types';
+import { Books, LoginRequest } from './types';
 import { User } from 'features/auth/authTypes';
 
 
-export async function loginApi(credentials: LoginRequest): Promise<User> {
+export const loginApi = async (credentials: LoginRequest): Promise<User> => {
   return apiRequest<User>('/api/auth/user', {
     method: 'POST',
     body: JSON.stringify(credentials),
   });
 }
 
-export async function getMe(): Promise<User> {
+export const getMe = async (): Promise<User> => {
   return apiRequest<User>('/api/me', {
     method: 'GET',
   });
 }
 
-export async function logoutApi(): Promise<void> {
+export const logoutApi = async(): Promise<void> => {
   return apiRequest<void>('/api/auth/logout', {
     method: 'POST',
+  });
+}
+
+export const getBooksApi = async () => {
+  return apiRequest<Books>('/api/books', {
+    method: 'GET',
   });
 }
