@@ -1,3 +1,5 @@
+@import url('../../shared/styles/colors.css');
+
 :root {
   @define-mixin flexCenter {
     align-items: center;
@@ -18,5 +20,50 @@
     font-size: 3rem;
 
     @mixin size;
+  }
+
+  @define-mixin input {
+    background-color: #eff2ff;
+    border: none;
+    border-radius: 2rem;
+    color: var(--accent-color-light);
+    color: #364065;
+    font-weight: 700;
+    outline: none;
+    padding: 0.8rem;
+    width: 100%
+  }
+
+  @define-mixin inputBlock {
+    background: var(--block-background-color);
+    border: 0.5rem solid var(--block-background-color);
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+    padding-bottom: 1rem;
+  }
+
+  @define-mixin inputLabel {
+    color: var(--accent-color-light);
+    font-weight: 700;
+    padding-left: 0.8rem
+  }
+
+  @define-mixin button {
+    background-color: var(--block-background-color);
+    border: none;
+    border-radius: 1rem;
+    color: var(--accent-color-light);
+    cursor:  pointer;
+    font-weight: 700;
+    padding: 1rem;
+    transition: all var(--short-animation-duration);
+    width: 100%;
+
+    &:disabled {
+      color: #eff2ff;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
   }
 }

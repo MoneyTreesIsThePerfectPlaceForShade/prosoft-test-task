@@ -1,5 +1,6 @@
 @import url('../../shared/styles/colors.css');
 @import url('../../shared/styles/variables.css');
+@import url('../../shared/styles/templates.css');
 
 .container {
   border-radius: 2rem;
@@ -13,30 +14,15 @@
 }
 
 .loginInput {
-  background: var(--block-background-color);
-  border: 0.5rem solid var(--block-background-color);
-  border-radius: 2rem;
-  margin-bottom: 2rem;
-  padding: 0.5rem;
-  padding-bottom: 1rem;
+  @mixin inputBlock;
 }
 
 .loginInput label {
-  color: var(--accent-color-light);
-  font-weight: 700;
-  padding-left: 0.8rem
+  @mixin inputLabel;
 }
 
 .loginInput input {
-  background-color: #eff2ff;
-  border: none;
-  border-radius: 2rem;
-  color: var(--accent-color-light);
-  color: #364065;
-  font-weight: 700;
-  outline: none;
-  padding: 0.8rem;
-  width: 100%
+  @mixin input;
 }
 
 .loginBtn {
