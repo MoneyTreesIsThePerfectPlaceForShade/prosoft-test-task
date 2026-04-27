@@ -1,8 +1,9 @@
 import { useAppDispatch, useAppSelector } from "app/store";
-import { Book } from "components/Book/Book";
 import { PageLayout } from "components/PageLayout/PageLayout";
 import { getBooks } from "features/books/booksSlice";
 import { useEffect } from "react"
+import { Link } from "react-router";
+import styles from './Books.module.css'
 
 export const Books = () => {
   const dispatch = useAppDispatch();
@@ -16,8 +17,8 @@ export const Books = () => {
   const renderBooksList = () => {
     return booksList.map((el) => {
       return (
-        <div key={el.id}>
-          <Book name={el.name} description={el.description} publisher={el.publisher}/>
+        <div key={el.id} className={styles.link}>
+          <Link to={el.id}>{el.name}</Link>
         </div>
       )
     });
@@ -26,7 +27,10 @@ export const Books = () => {
 
   return (
     <PageLayout>
-      {renderBooksList()}
+      <div>
+        <h2>Каталог книг</h2>
+        {renderBooksList()}
+      </div>
     </PageLayout>
   )
 }

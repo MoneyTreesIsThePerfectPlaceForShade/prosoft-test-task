@@ -1,6 +1,7 @@
 import { apiRequest } from './utils';
 import { Books, LoginRequest } from './types';
 import { User } from 'features/auth/authTypes';
+import { Book } from 'features/books/booksTypes';
 
 
 export const loginApi = async (credentials: LoginRequest): Promise<User> => {
@@ -24,6 +25,12 @@ export const logoutApi = async(): Promise<void> => {
 
 export const getBooksApi = async () => {
   return apiRequest<Books>('/api/books', {
+    method: 'GET',
+  });
+}
+
+export const getBookApi = async (id:string) => {
+  return apiRequest<Book>(`/api/books/${id}`, {
     method: 'GET',
   });
 }
