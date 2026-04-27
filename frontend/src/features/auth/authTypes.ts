@@ -1,14 +1,14 @@
-export type UserRole = 'user' | 'admin';
+export type UserRole = 'admin' | 'user';
 
 export type User = {
-  login: string,
-  role: UserRole,
-  created_at: string
-}
+	created_at: string,
+	login: string,
+	role: UserRole
+};
 
 export type AuthState = {
-  isAuthenticated: boolean,
-  user: User | null,
-  error: string | null,
-  isLoading: boolean
-}
+	error: string | null,
+	isAuthenticated: boolean,
+	isLoading: boolean,
+	user: User | null
+};

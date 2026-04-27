@@ -1,17 +1,13 @@
-import { useEffect } from 'react';
-import { useAppDispatch } from '../app/store';
-import { getCurrentUser } from '../features/auth/authSlice';
+import {useAppDispatch} from '../app/store';
+import {getCurrentUser} from '../features/auth/authSlice';
+import {ReactNode, useEffect} from 'react';
 
-interface AuthProviderProps {
-  children: React.ReactNode;
-}
+export const AuthProvider = ({children}: {children: ReactNode}) => {
+	const dispatch = useAppDispatch();
 
-export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const dispatch = useAppDispatch();
+	useEffect(() => {
+		dispatch(getCurrentUser());
+	}, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getCurrentUser());
-  }, []);
-
-  return <>{children}</>;
+	return <>{children}</>;
 };

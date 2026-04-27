@@ -1,5 +1,8 @@
-import { User } from "features/auth/authTypes"
+import {User} from 'features/auth/authTypes';
 
-export const isAdmin = (user: User) => {
-  return user.role === 'admin';
-}
+/**
+ * Проверяет, является ли пользователь админом.
+ * @param {User} user - объект текущего пользователя.
+ * @returns {boolean} true, если пользователь админ, иначе false;
+ */
+export const isAdmin = (user: User) => user.role === 'admin';

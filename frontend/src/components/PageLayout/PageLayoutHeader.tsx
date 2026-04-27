@@ -1,20 +1,20 @@
-import {HeaderMenu} from 'components/HeaderMenu/HeaderMenu';
-import {ToggleTheme} from 'components/ToggleTheme/ToggleTheme';
 import {useAppDispatch, useAppSelector} from '../../app/store';
 import {logout} from '../../features/auth/authSlice';
-import {useNavigate} from 'react-router';
-import {useTheme} from 'shared/hooks/useTheme';
-import {Icon} from 'shared/components/Icon/Icon';
-import {logoutIcon} from 'shared/icons/icons';
-import cn from 'classnames';
 import styles from './PageLayoutHeader.module.css';
+import cn from 'classnames';
+import {HeaderMenu} from 'components/HeaderMenu/HeaderMenu';
+import {ToggleTheme} from 'components/ToggleTheme/ToggleTheme';
+import {useNavigate} from 'react-router';
+import {Icon} from 'shared/components/Icon/Icon';
+import {useTheme} from 'shared/hooks/useTheme';
+import {logoutIcon} from 'shared/icons/icons';
 
 export const PageLayoutHeader = () => {
 	const {theme} = useTheme();
 
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
-	const { isLoading, user, isAuthenticated } = useAppSelector((state) => state.auth);
+	const {isAuthenticated, isLoading, user} = useAppSelector(state => state.auth);
 
 	const handleLogout = async () => {
 		try {
@@ -44,13 +44,13 @@ export const PageLayoutHeader = () => {
 				{isAuthenticated && user && (
 					<div className={buttonStyles}>
 						<button
-							onClick={handleLogout}
-							disabled={isLoading}
 							className={styles.logout}
-							>
-								<span className={iconStyles}>
-									<Icon color="currentColor" height="3rem" icon={logoutIcon} width="3rem" />
-								</span>
+							disabled={isLoading}
+							onClick={handleLogout}
+						>
+							<span className={iconStyles}>
+								<Icon color="currentColor" height="3rem" icon={logoutIcon} width="3rem" />
+							</span>
 						</button>
 					</div>
 				)}

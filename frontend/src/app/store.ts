@@ -1,9 +1,8 @@
 import {configureStore} from '@reduxjs/toolkit';
-import {useDispatch, useSelector} from 'react-redux';
-import {TypedUseSelectorHook} from 'react-redux';
-import { authSlice } from 'features/auth/authSlice';
-import { booksSlice } from 'features/books/booksSlice';
-import { bookSlice } from 'features/book/bookSlice';
+import {authSlice} from 'features/auth/authSlice';
+import {bookSlice} from 'features/book/bookSlice';
+import {booksSlice} from 'features/books/booksSlice';
+import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 
 export const store = configureStore({
 	reducer: {

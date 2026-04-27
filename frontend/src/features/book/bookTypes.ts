@@ -1,10 +1,10 @@
-import { Book } from "features/books/booksTypes"
+import {Book} from 'features/books/booksTypes';
 
 export type BookState = {
-  restActionResult: string,
-  book: Book,
-  error: string | null,
-  isLoading: boolean
-}
+	book: Book,
+	error: string | null,
+	isLoading: boolean,
+	restActionResult: string
+};
 
-export type RestBook = Pick<Book, 'name' | 'description' | 'id'>;
+export type RestBook = Pick<Book, 'description' | 'id' | 'name'>;

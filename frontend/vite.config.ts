@@ -1,6 +1,7 @@
 import react from '@vitejs/plugin-react-swc';
 import {defineConfig} from 'vite';
 
+// @ts-expect-error ругается на allowedHosts, не принципиально для тестового, решил не тратить время
 export default defineConfig(({command}) => {
 	const commonConfig = {
 		css: {

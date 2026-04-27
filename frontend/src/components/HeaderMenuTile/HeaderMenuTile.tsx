@@ -6,7 +6,7 @@ import {Link} from 'react-router';
  * Компонент для отображения плитки меню.
  */
 export const HeaderMenuTile = ({tile}: Props) => (
-	<div className={styles.container}>
+	<h2 className={styles.container}>
 		<Link to={tile.page}>{tile.title}</Link>
-	</div>
+	</h2>
 );

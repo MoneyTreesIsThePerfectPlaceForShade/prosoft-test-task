@@ -1,13 +1,13 @@
 export type Book = {
-  id: string,
-  name: string,
-  description: string,
-  publisher: string,
-  created_at: string
-}
+	created_at: string,
+	description: string,
+	id: string,
+	name: string,
+	publisher: string
+};
 
 export type BooksState = {
-  booksList: Book[],
-  error: string | null,
-  isLoading: boolean
-}
+	booksList: Book[],
+	error: string | null,
+	isLoading: boolean
+};

@@ -1,12 +1,12 @@
-import { Book } from "features/books/booksTypes"
+import {Book} from 'features/books/booksTypes';
 
 export type ApiError = {
-  message: string
-}
+	message: string
+};
 
 export type LoginRequest = {
-  login: string,
-  password: string
-}
+	login: string,
+	password: string
+};
 
 export type Books = Book[];

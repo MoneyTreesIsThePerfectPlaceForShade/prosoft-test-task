@@ -44,4 +44,8 @@
   background-color: aliceblue;
   border: 0.5rem solid var(--accent-color-light);
   color: inherit;
+
+  &:disabled {
+    color: var(--accent-color-light);
+  }
 } 
