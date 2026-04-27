@@ -25,7 +25,7 @@ export const AddBook = () => {
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		if (!name || !description) {
+		if (!name.trim() || !description.trim()) {
 			return;
 		}
 
@@ -44,7 +44,7 @@ export const AddBook = () => {
 			</div>
 			<button
 				className={styles.addBtn}
-				disabled={!name || !description}
+				disabled={!name.trim() || !description.trim()}
 				type="submit"
 			>
 				Добавить книгу

@@ -1,3 +1,5 @@
 export type Props = {
-	id: string
+	descriptionBook: string,
+	id: string,
+	nameBook: string
 };

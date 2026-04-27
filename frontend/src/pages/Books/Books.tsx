@@ -22,7 +22,7 @@ export const Books = () => {
 
 	return (
 		<PageLayout>
-			<div>
+			<div className={styles.container}>
 				<h2>Каталог книг</h2>
 				{renderBooksList()}
 			</div>

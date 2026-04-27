@@ -10,10 +10,13 @@
   gap: 1rem;
   margin: 2rem;
   max-height: 100rem;
+  max-width: 100rem;
   min-height: 50rem;
+  min-width: 50rem;
   overflow: hidden;
   padding: 1rem;
   transition: all var(--standart-animation-duration);
+  word-break: break-all;
 }
 
 .containerLight {

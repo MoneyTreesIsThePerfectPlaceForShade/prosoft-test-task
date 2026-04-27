@@ -6,9 +6,9 @@ import {clearMsg, editBook} from 'features/book/bookSlice';
 import {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 import {useTheme} from 'shared/hooks/useTheme';
 
-export const EditBook = ({id}: Props) => {
-	const [name, setName] = useState('');
-	const [description, setDescription] = useState('');
+export const EditBook = ({descriptionBook, id, nameBook}: Props) => {
+	const [name, setName] = useState(nameBook.trim());
+	const [description, setDescription] = useState(descriptionBook.trim());
 
 	const {theme} = useTheme();
 
@@ -30,7 +30,7 @@ export const EditBook = ({id}: Props) => {
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		if (!name || !description) {
+		if (!name.trim() || !description.trim()) {
 			return;
 		}
 
@@ -47,16 +47,16 @@ export const EditBook = ({id}: Props) => {
 		<form className={styles.container} onSubmit={handleSubmit}>
 			<div className={styles.inputBlock}>
 				<label htmlFor="name">Название</label>
-				<input id="name" onChange={handleChangeName} type="text" />
+				<input id="name" onChange={handleChangeName} type="text" value={name} />
 			</div>
 			<div className={styles.inputBlock}>
 				<label htmlFor="description">Описание</label>
-				<input id="description" onChange={handleChangeDesc} type="text" />
+				<input id="description" onChange={handleChangeDesc} type="text" value={description} />
 			</div>
 			{message ? <div className={styles.message}>{message}</div> : null}
 			<button
 				className={buttonStyles}
-				disabled={!name || !description}
+				disabled={!name.trim() || !description.trim()}
 				type="submit"
 			>
 				Отредактировать книгу

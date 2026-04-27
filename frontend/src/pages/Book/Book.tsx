@@ -28,7 +28,7 @@ export const Book = () => {
 	const renderAdminPanel = () => !!user && isAdmin(user)
 		? (
 			<div>
-				<EditBook id={id} />
+				<EditBook descriptionBook={description} id={id} nameBook={name} />
 				<DeleteBook id={id} />
 			</div>
 		)
