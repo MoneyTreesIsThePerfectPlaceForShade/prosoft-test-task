@@ -1,0 +1,47 @@
+@import url("../../shared/styles/colors.css");
+@import url("../../shared/styles/variables.css");
+@import url("../../shared/styles/templates.css");
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container input {
+  @mixin input;
+}
+
+.inputBlock {
+  @mixin inputBlock;
+}
+
+.inputBlock label {
+  @mixin inputLabel;
+}
+
+.addBtn {
+  @mixin button;
+}
+
+.message {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.editBookBtn {
+  @mixin button;
+
+  margin: 2rem 0;
+  transition: all var(--standart-animation-duration);
+}
+
+.editBookBtnLight {
+  background-color: var(--block-background-color);
+  border: 0.5rem solid var(--accent-color-dark);
+}
+
+.editBookBtnDark {
+  background-color: aliceblue;
+  border: 0.5rem solid var(--accent-color-light);
+  color: inherit;
+} 

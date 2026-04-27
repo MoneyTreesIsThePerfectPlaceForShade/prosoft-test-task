@@ -5,6 +5,7 @@ import { PageLayout } from "components/PageLayout/PageLayout";
 import { useAppSelector } from "app/store";
 import { isAdmin } from 'shared/utils/check';
 import { DeleteBook } from 'components/DeleteBook/DeleteBook';
+import { EditBook } from 'components/EditBook/EditBook';
 
 export const Book = () => {
   const {theme} = useTheme();
@@ -23,6 +24,15 @@ export const Book = () => {
     [styles.blockLight]: theme === 'light',
     [styles.blockDark]: theme === 'dark'
   });
+
+  const renderAdminPanel = () => {
+    return !!user && isAdmin(user) 
+        ? <div>
+            <EditBook id={id} />
+            <DeleteBook id={id}/> 
+          </div>
+        : null
+  }
   
   return (
     <PageLayout>
@@ -39,11 +49,7 @@ export const Book = () => {
           <b>Автор публикации</b>
           <div>{publisher}</div>
         </span>
-        {
-        !!user && isAdmin(user) 
-        ? <DeleteBook id={id}/> 
-        : null
-        }
+        {renderAdminPanel()}
       </div>
     </PageLayout>
   )

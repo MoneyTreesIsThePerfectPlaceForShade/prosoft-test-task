@@ -2,7 +2,7 @@ import { apiRequest } from './utils';
 import { Books, LoginRequest } from './types';
 import { User } from 'features/auth/authTypes';
 import { Book } from 'features/books/booksTypes';
-import { PostBook } from 'features/book/bookTypes';
+import { RestBook } from 'features/book/bookTypes';
 
 
 export const loginApi = async (credentials: LoginRequest): Promise<User> => {
@@ -36,9 +36,16 @@ export const getBookApi = async (id:string) => {
   });
 }
 
-export const postBookApi = async (book: PostBook) => {
+export const postBookApi = async (book: Pick<RestBook, 'name' | 'description'>) => {
   return apiRequest<Book>('/api/books', {
     method: 'POST',
+    body: JSON.stringify(book)
+  });
+}
+
+export const editBookApi = async (book: RestBook) => {
+  return apiRequest<Book>(`/api/books/${book.id}`, {
+    method: 'PATCH',
     body: JSON.stringify(book)
   });
 }

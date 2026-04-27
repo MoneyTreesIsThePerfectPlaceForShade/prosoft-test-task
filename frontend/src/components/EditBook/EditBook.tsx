@@ -1,11 +1,16 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import styles from './AddBook.module.css';
 import { useAppDispatch, useAppSelector } from "app/store";
-import { postBook } from "features/book/bookSlice";
+import { editBook } from "features/book/bookSlice";
+import { Props } from "./types";
+import { useTheme } from "shared/hooks/useTheme";
+import cn from 'classnames';
+import styles from './EditBook.module.css';
 
-export const AddBook = () => {
+export const EditBook = ({id}: Props) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+
+  const {theme} = useTheme();
 
   const dispatch = useAppDispatch();
   const message = useAppSelector(state => state.book.restActionResult);
@@ -25,8 +30,14 @@ export const AddBook = () => {
       return;
     }
 
-    dispatch(postBook({name, description}));
+    dispatch(editBook({name, description, id}));
   }
+
+  const buttonStyles = cn({
+    [styles.editBookBtn]: true,
+    [styles.editBookBtnLight]: theme === 'light',
+    [styles.editBookBtnDark]: theme === 'dark'
+  });
   
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
@@ -38,14 +49,14 @@ export const AddBook = () => {
         <label htmlFor="description">Описание</label>
         <input id="description" type="text" onChange={handleChangeDesc}/>
       </div>
+      {message ? <div className={styles.message}>{message}</div> : null}
       <button 
         type="submit" 
-        className={styles.addBtn}
+        className={buttonStyles}
         disabled={!name || !description}
       >
-        Добавить книгу
+        Отредактировать книгу
       </button>
-      {message ? <div className={styles.message}>{message}</div> : null}
     </form>
   )
 }
