@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Book } from "features/books/booksTypes";
-import { getBookApi, postBookApi } from "shared/api/authApi";
+import { deleteBookApi, getBookApi, postBookApi } from "shared/api/authApi";
 import { BookState } from "./bookTypes";
 
 const initialState: BookState = {
@@ -46,6 +46,21 @@ export const postBook = createAsyncThunk(
   }
 );
 
+export const deleteBook = createAsyncThunk(
+  'book/deleteBook',
+  async (id: string, { rejectWithValue }) => {
+    try {
+      await deleteBookApi(id);
+      return;
+    } catch (error: any) {
+      if (error.message && error.message.includes('Unauthenticated')) {
+        return;
+      }
+      return rejectWithValue(error.message || 'Logout failed');
+    }
+  }
+);
+
 export const bookSlice = createSlice({
   name: 'book',
   initialState,
@@ -75,6 +90,19 @@ export const bookSlice = createSlice({
         state.error = null;
       })
       .addCase(postBook.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      })
+      .addCase(deleteBook.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(deleteBook.fulfilled, (state) => {
+        state.book = initialState.book;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(deleteBook.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload as string;
       });

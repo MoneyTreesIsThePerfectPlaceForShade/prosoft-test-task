@@ -455,7 +455,7 @@ app.delete<{ Params: DeleteBookParams }>("/api/books/:bookId", {
 
   books.delete(req.params.bookId as UUID);
 
-  reply.send();
+  reply.send({message: 'Книга была удалена'});
 });
 
 app.setErrorHandler((err, _req, reply) => {

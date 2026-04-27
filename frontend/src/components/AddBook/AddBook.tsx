@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import styles from './AddBook.module.css';
-import { useAppDispatch } from "app/store";
+import { useAppDispatch, useAppSelector } from "app/store";
 import { postBook } from "features/book/bookSlice";
 
 export const AddBook = () => {
@@ -8,6 +8,7 @@ export const AddBook = () => {
   const [description, setDescription] = useState('');
 
   const dispatch = useAppDispatch();
+  const message = useAppSelector(state => state.book.addBookResult);
 
   const handleChangeName = ({target}: ChangeEvent<HTMLInputElement>) => {
     setName(target.value);
@@ -44,6 +45,7 @@ export const AddBook = () => {
       >
         Добавить книгу
       </button>
+      {message ? <div className={styles.message}>{message}</div> : null}
     </form>
   )
 }

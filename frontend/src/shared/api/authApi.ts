@@ -42,3 +42,10 @@ export const postBookApi = async (book: PostBook) => {
     body: JSON.stringify(book)
   });
 }
+
+export const deleteBookApi = async (id: string) => {
+  return apiRequest<{message: string}>(`/api/books/${id}`, {
+    method: 'DELETE',
+    body: JSON.stringify({id})
+  });
+}

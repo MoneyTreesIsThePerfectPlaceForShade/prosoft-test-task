@@ -1,5 +1,6 @@
 @import url("../../shared/styles/colors.css");
 @import url("../../shared/styles/variables.css");
+@import url("../../shared/styles/templates.css");
 
 .container {
   border: 0.5rem solid var(--accent-color-light);

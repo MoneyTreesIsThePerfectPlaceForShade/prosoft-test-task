@@ -3,11 +3,14 @@ import styles from './Book.module.css';
 import {useTheme} from "shared/hooks/useTheme";
 import { PageLayout } from "components/PageLayout/PageLayout";
 import { useAppSelector } from "app/store";
+import { isAdmin } from 'shared/utils/check';
+import { DeleteBook } from 'components/DeleteBook/DeleteBook';
 
 export const Book = () => {
   const {theme} = useTheme();
 
-  const {book: {name, description, publisher}} = useAppSelector(state => state.book);
+  const {user} = useAppSelector(state => state.auth);
+  const {book: {name, description, publisher, id}} = useAppSelector(state => state.book);
 
   const containerStyles = cn({
     [styles.container]: true,
@@ -36,6 +39,11 @@ export const Book = () => {
           <b>Автор публикации</b>
           <div>{publisher}</div>
         </span>
+        {
+        !!user && isAdmin(user) 
+        ? <DeleteBook id={id}/> 
+        : null
+        }
       </div>
     </PageLayout>
   )
